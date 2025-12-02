@@ -1,7 +1,8 @@
 #pragma warning(disable : 4996)
 #pragma once
 
-#include "clsString.hpp"
+#include "project1_util_library_string.hpp"
+
 using namespace std;
 
 class clsDate
