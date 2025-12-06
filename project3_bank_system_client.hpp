@@ -2,7 +2,8 @@
 
 #include "project3_bank_system_person.hpp"
 
-enum enMode { EmptyMode = 0, UpdateMode = 1 };
+enum enMode         { EmptyMode = 0, UpdateMode = 1 };
+enum enSaveResults  { svFaildEmptyObject = 0, svSucceeded = 1 };
 
 class clsBankClient : public clsPerson
 {
@@ -27,13 +28,13 @@ private:
     {
 
         string stClientRecord = "";
-        stClientRecord += Client.FirstName + Seperator;
-        stClientRecord += Client.LastName + Seperator;
-        stClientRecord += Client.Email + Seperator;
-        stClientRecord += Client.Phone + Seperator;
+        stClientRecord += Client.GetFirstName() + Seperator;
+        stClientRecord += Client.GetLastName() + Seperator;
+        stClientRecord += Client.GetEmail() + Seperator;
+        stClientRecord += Client.GetPhone() + Seperator;
         stClientRecord += Client.AccountNumber() + Seperator;
-        stClientRecord += Client.PinCode + Seperator;
-        stClientRecord += to_string(Client.AccountBalance);
+        stClientRecord += Client.GetPinCode() + Seperator;
+        stClientRecord += to_string(Client.GetAccountBalance());
 
         return stClientRecord;
 
@@ -168,7 +169,6 @@ public:
     {
         return _PinCode;
     }
-    __declspec(property(get = GetPinCode, put = SetPinCode)) string PinCode;
 
     void SetAccountBalance(float AccountBalance)
     {
@@ -179,17 +179,16 @@ public:
     {
         return _AccountBalance;
     }
-    __declspec(property(get = GetAccountBalance, put = SetAccountBalance)) float AccountBalance;
 
     void Print()
     {
         cout << "\nClient Card:";
         cout << "\n___________________";
-        cout << "\nFirstName   : " << FirstName;
-        cout << "\nLastName    : " << LastName;
+        cout << "\nFirstName   : " << GetFirstName();
+        cout << "\nLastName    : " << GetLastName();
         cout << "\nFull Name   : " << FullName();
-        cout << "\nEmail       : " << Email;
-        cout << "\nPhone       : " << Phone;
+        cout << "\nEmail       : " << GetEmail();
+        cout << "\nPhone       : " << GetPhone();
         cout << "\nAcc. Number : " << _AccountNumber;
         cout << "\nPassword    : " << _PinCode;
         cout << "\nBalance     : " << _AccountBalance;
@@ -239,7 +238,7 @@ public:
             while (getline(MyFile, Line))
             {
                 clsBankClient Client = _ConvertLinetoClientObject(Line);
-                if (Client.AccountNumber() == AccountNumber && Client.PinCode == PinCode)
+                if (Client.AccountNumber() == AccountNumber && Client.GetPinCode() == PinCode)
                 {
                     MyFile.close();
                     return Client;
@@ -253,9 +252,7 @@ public:
         return _GetEmptyClientObject();
     }
 
-    enum enSaveResults { svFaildEmptyObject = 0, svSucceeded = 1 };
-
-    enSaveResults Save()
+enSaveResults Save()
     {
 
         switch (_Mode)
