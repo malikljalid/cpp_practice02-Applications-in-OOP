@@ -93,7 +93,7 @@ class clsMainScreen: protected clsScreen
             }
             case enMainMenueOptions::eAddNewClient:
                 system("cls");
-               _ShowAddNewClientsScreen();
+                _ShowAddNewClientsScreen();
                 _GoBackToMainMenue();
                 break;
 
