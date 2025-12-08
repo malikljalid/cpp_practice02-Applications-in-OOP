@@ -3,8 +3,6 @@
 
 #include "project3_bank_system_string.hpp"
 
-using namespace std;
-
 class clsDate
 {
 
