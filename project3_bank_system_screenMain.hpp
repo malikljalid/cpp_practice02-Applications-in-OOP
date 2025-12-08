@@ -2,6 +2,8 @@
 
 #include "project3_bank_system_screen.hpp"
 #include "project3_bank_system_screenClientList.hpp"
+#include "project3_bank_system_screenAddNewClient.hpp"
+#include "project3_bank_system_screenDeleteClient.hpp"
 
 enum enMainMenueOptions {
                             eListClients = 1, eAddNewClient = 2, eDeleteClient = 3,
@@ -40,14 +42,14 @@ class clsMainScreen: protected clsScreen
 
        static void _ShowAddNewClientsScreen()
        {
-           cout << "\nAdd New Client Screen Will be here...\n";
-         
+        //    cout << "\nAdd New Client Screen Will be here...\n";
+            clsAddNewClientScreen::ShowAddNewClientScreen();
        }
 
        static void _ShowDeleteClientScreen()
        {
-           cout << "\nDelete Client Screen Will be here...\n";
-
+        //    cout << "\nDelete Client Screen Will be here...\n";
+            clsDeleteClientScreen::ShowDeleteClientScreen();
        }
 
        static void _ShowUpdateClientScreen()
