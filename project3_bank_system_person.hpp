@@ -1,8 +1,7 @@
 #pragma once
 
-#include "project3_bank_system_date.hpp"
+#include "project3_bank_system_inputValidation.hpp"
 
-using namespace std;
 
 class clsPerson
 {
