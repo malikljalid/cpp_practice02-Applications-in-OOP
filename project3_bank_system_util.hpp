@@ -2,8 +2,6 @@
 
 #include "project3_bank_system_date.hpp"
 
-using namespace std;
-
 class clsUtil
 {
    
@@ -240,5 +238,24 @@ public:
 
     }
 
+    static string NumberToText(double Number)
+    {
+        return (std::to_string(Number));
+    }
+
+    static string NumberToText(float Number)
+    {
+        return (std::to_string(Number));
+    }
+
+    static string NumberToText(int Number)
+    {
+        return (std::to_string(Number));
+    }
+
+    static string NumberToText(short int Number)
+    {
+        return (std::to_string(Number));
+    }
 };
 
