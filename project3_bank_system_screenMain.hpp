@@ -7,6 +7,7 @@
 #include "project3_bank_system_screenUpdateClient.hpp"
 #include "project3_bank_system_screenFindClient.hpp"
 #include "project3_bank_system_screenTransactions.hpp"
+#include "project3_bank_system_screenManageUsers.hpp"
 
 enum enMainMenueOptions {
                             eListClients = 1, eAddNewClient = 2, eDeleteClient = 3,
@@ -76,7 +77,8 @@ class clsMainScreen: protected clsScreen
 
        static void _ShowManageUsersMenue()
        {
-           cout << "\nUsers Menue Will be here...\n";
+        //    cout << "\nUsers Menue Will be here...\n";
+            clsManageUsersScreen::ShowManageUsersMenue();
 
        }
 
