@@ -2,6 +2,7 @@
 
 #include "project3_bank_system_screen.hpp"
 #include "project3_bank_system_screenTransDeposit.hpp"
+#include "project3_bank_system_screenTransWithdraw.hpp"
 
 enum enTransactionsMenueOptions {
                                     eDeposit = 1, eWithdraw = 2,
@@ -30,7 +31,8 @@ private:
 
     static void _ShowWithdrawScreen()
     {
-        cout << "\n Withdraw Screen will be here.\n";
+        // cout << "\n Withdraw Screen will be here.\n";
+        clsWithdrawScreen::ShowWithdrawScreen();
     }
 
     static void _ShowTotalBalancesScreen()
