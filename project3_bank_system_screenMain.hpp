@@ -70,6 +70,7 @@ class clsMainScreen: protected clsScreen
        static void _ShowTransactionsMenue()
        {
            cout << "\nTransactions Menue Will be here...\n";
+           clsTransactionsScreen::ShowTransactionsMenue();
 
        }
 
