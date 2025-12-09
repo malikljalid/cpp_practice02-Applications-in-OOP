@@ -1,6 +1,7 @@
 #pragma once
 
 #include "project3_bank_system_screen.hpp"
+#include "project3_bank_system_screenTransDeposit.hpp"
 
 enum enTransactionsMenueOptions {
                                     eDeposit = 1, eWithdraw = 2,
@@ -21,10 +22,10 @@ private:
         return Choice;
     }
 
-
     static void _ShowDepositScreen()
     {
-        cout << "\n Deposit Screen will be here.\n";
+        // cout << "\n Deposit Screen will be here.\n";
+        clsDepositScreen::ShowDepositScreen();
     }
 
     static void _ShowWithdrawScreen()
