@@ -1,6 +1,7 @@
 #pragma once
 
 #include "project3_bank_system_screen.hpp"
+#include "project3_bank_system_screenManageListUsers.hpp"
 
 class clsManageUsersScreen : protected clsScreen
 {
@@ -27,13 +28,14 @@ private:
 
     static void _ShowListUsersScreen()
     {
-        cout << "\nList Users Screen Will Be Here.\n";
+        // cout << "\nList Users Screen Will Be Here.\n";
+        clsListUsersScreen::ShowUsersList();
 
     }
 
     static void _ShowAddNewUserScreen()
     {
-        cout << "\nAdd New User Screen Will Be Here.\n";
+        // cout << "\nAdd New User Screen Will Be Here.\n";
 
     }
 
