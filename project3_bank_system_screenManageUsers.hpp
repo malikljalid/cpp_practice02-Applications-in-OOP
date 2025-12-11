@@ -2,6 +2,7 @@
 
 #include "project3_bank_system_screen.hpp"
 #include "project3_bank_system_screenManageListUsers.hpp"
+#include "project3_bank_system_screenManageAddNewUser.hpp"
 
 class clsManageUsersScreen : protected clsScreen
 {
@@ -36,7 +37,7 @@ private:
     static void _ShowAddNewUserScreen()
     {
         // cout << "\nAdd New User Screen Will Be Here.\n";
-
+        clsAddNewUserScreen::ShowAddNewUserScreen();
     }
 
     static void _ShowDeleteUserScreen()
