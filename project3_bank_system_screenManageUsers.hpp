@@ -4,6 +4,7 @@
 #include "project3_bank_system_screenManageListUsers.hpp"
 #include "project3_bank_system_screenManageAddNewUser.hpp"
 #include "project3_bank_system_screenManageDeleteUser.hpp"
+#include "project3_bank_system_screenManageUpdateUser.hpp"
 
 class clsManageUsersScreen : protected clsScreen
 {
@@ -49,12 +50,13 @@ private:
 
     static void _ShowUpdateUserScreen()
     {
-        cout << "\nUpdate User Screen Will Be Here.\n";
+        // cout << "\nUpdate User Screen Will Be Here.\n";
+        clsUpdateUserScreen::ShowUpdateUserScreen();
     }
 
     static void _ShowFindUserScreen()
     {
-        cout << "\nFind User Screen Will Be Here.\n";
+        // cout << "\nFind User Screen Will Be Here.\n";
     }
 
 
