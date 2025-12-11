@@ -1,6 +1,7 @@
 #pragma once
 
 #include "project3_bank_system_screen.hpp"
+#include "project3_bank_system_client.hpp"
 
 class clsClientListScreen: protected clsScreen
 {
