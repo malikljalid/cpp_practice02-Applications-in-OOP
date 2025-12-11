@@ -3,6 +3,7 @@
 #include "project3_bank_system_screen.hpp"
 #include "project3_bank_system_screenManageListUsers.hpp"
 #include "project3_bank_system_screenManageAddNewUser.hpp"
+#include "project3_bank_system_screenManageDeleteUser.hpp"
 
 class clsManageUsersScreen : protected clsScreen
 {
@@ -42,8 +43,8 @@ private:
 
     static void _ShowDeleteUserScreen()
     {
-        cout << "\nDelete User Screen Will Be Here.\n";
-
+        // cout << "\nDelete User Screen Will Be Here.\n";
+        clsDeleteUserScreen::ShowDeleteUserScreen();
     }
 
     static void _ShowUpdateUserScreen()
