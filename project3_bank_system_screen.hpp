@@ -1,6 +1,7 @@
 #pragma once
 
 #include "project3_bank_system_client.hpp"
+#include "project3_bank_system_user.hpp"
 
 class clsScreen
 {
