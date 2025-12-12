@@ -47,6 +47,10 @@ public:
 
     static void ShowAddNewClientScreen()
     {
+        if (!CheckAccessRights(enPermissions::pAddNewClient))
+        {
+            return;// this will exit the function and it will not continue
+        }
 
         _DrawScreenHeader("\t  Add New Client Screen");
 
