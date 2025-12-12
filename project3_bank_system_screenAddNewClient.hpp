@@ -69,25 +69,25 @@ public:
 
         _ReadClientInfo(NewClient);
 
-        enSaveResults SaveResult;
+        enClientSaveResults SaveResult;
 
         SaveResult = NewClient.Save();
 
         switch (SaveResult)
         {
-        case  enSaveResults::svSucceeded :
+        case enClientSaveResults::csvSucceeded :
         {
             cout << "\nAccount Addeded Successfully :-)\n";
             _PrintClient(NewClient);
             break;
         }
-        case enSaveResults::svFaildEmptyObject :
+        case enClientSaveResults::csvFaildEmptyObject :
         {
             cout << "\nError account was not saved because it's Empty";
             break;
 
         }
-        case enSaveResults::svFaildAccountNumberExists :
+        case enClientSaveResults::csvFaildAccountNumberExists :
         {
             cout << "\nError account was not saved because account number is used!\n";
             break;
