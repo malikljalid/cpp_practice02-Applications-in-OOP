@@ -153,20 +153,20 @@ public:
 
             _ReadUserInfo(User1);
 
-            enSaveResults SaveResult;
+            enUserSaveResults SaveResult;
 
             SaveResult = User1.Save();
 
             switch (SaveResult)
             {
-            case  enSaveResults::svSucceeded:
+            case  enUserSaveResults::usvSucceeded:
             {
                 cout << "\nUser Updated Successfully :-)\n";
 
                 _PrintUser(User1);
                 break;
             }
-            case enSaveResults::svFaildEmptyObject:
+            case enUserSaveResults::usvFaildEmptyObject:
             {
                 cout << "\nError User was not saved because it's Empty";
                 break;
