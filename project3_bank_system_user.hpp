@@ -2,8 +2,8 @@
 
 #include "project3_bank_system_person.hpp"
 
-enum enMode         { EmptyMode = 0, UpdateMode = 1, AddNewMode = 2 };
-enum enSaveResults  { svFaildEmptyObject = 0, svSucceeded = 1, svFaildUserExists = 2 };
+enum enUserMode         { uEmptyMode = 0, uUpdateMode = 1, uAddNewMode = 2 };
+enum enUserSaveResults  { usvFaildEmptyObject = 0, usvSucceeded = 1, usvFaildUserExists = 2 };
 enum enPermissions  {
                         eAll = -1, pListClients = 1, pAddNewClient = 2, pDeleteClient = 4,
                         pUpdateClients = 8, pFindClient = 16, pTranactions = 32, pManageUsers = 64
@@ -13,7 +13,7 @@ class clsUser : public clsPerson
 {
 private:
 
-    enMode  _Mode;
+    enUserMode  _Mode;
     string  _UserName;
     string  _Password;
     int     _Permissions;
@@ -152,7 +152,7 @@ private:
 
 public:
 
-    clsUser(enMode Mode, string FirstName, string LastName,
+    clsUser(enUserMode Mode, string FirstName, string LastName,
         string Email, string Phone, string UserName, string Password,
         int Permissions) :
         clsPerson(FirstName, LastName, Email, Phone)
@@ -255,40 +255,40 @@ public:
         return _GetEmptyUserObject();
     }
 
-    enSaveResults Save()
+    enUserSaveResults Save()
     {
 
         switch (_Mode)
         {
-        case enMode::EmptyMode:
+        case enUserMode::uEmptyMode:
         {
             if (IsEmpty())
             {
-                return enSaveResults::svFaildEmptyObject;
+                return enUserSaveResults::usvFaildEmptyObject;
             }
         }
 
-        case enMode::UpdateMode:
+        case enUserMode::uUpdateMode:
         {
             _Update();
-            return enSaveResults::svSucceeded;
+            return enUserSaveResults::usvSucceeded;
 
             break;
         }
 
-        case enMode::AddNewMode:
+        case enUserMode::uAddNewMode:
         {
             //This will add new record to file or database
             if (clsUser::IsUserExist(_UserName))
             {
-                return enSaveResults::svFaildUserExists;
+                return enUserSaveResults::usvFaildUserExists;
             }
             else
             {
                 _AddNew();
                 //We need to set the mode to update after add new
-                _Mode = enMode::UpdateMode;
-                return enSaveResults::svSucceeded;
+                _Mode = enUserMode::uUpdateMode;
+                return enUserSaveResults::usvSucceeded;
             }
 
             break;
