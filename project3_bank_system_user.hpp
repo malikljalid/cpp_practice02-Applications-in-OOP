@@ -25,7 +25,7 @@ private:
         vector<string> vUserData;
         vUserData = clsString::Split(Line, Seperator);
 
-        return clsUser(enMode::UpdateMode, vUserData[0], vUserData[1], vUserData[2],
+        return clsUser(enUserMode::uUpdateMode, vUserData[0], vUserData[1], vUserData[2],
             vUserData[3], vUserData[4], vUserData[5], stoi(vUserData[6]));
 
     }
@@ -147,7 +147,7 @@ private:
 
     static clsUser _GetEmptyUserObject()
     {
-        return clsUser(enMode::EmptyMode, "", "", "", "", "", "", 0);
+        return clsUser(enUserMode::uEmptyMode, "", "", "", "", "", "", 0);
     }
 
 public:
@@ -166,7 +166,7 @@ public:
 
     bool IsEmpty()
     {
-        return (_Mode == enMode::EmptyMode);
+        return (_Mode == enUserMode::uEmptyMode);
     }
 
     bool MarkedForDeleted()
@@ -329,7 +329,7 @@ public:
 
     static clsUser GetAddNewUserObject(string UserName)
     {
-        return clsUser(enMode::AddNewMode, "", "", "", "", UserName, "", 0);
+        return clsUser(enUserMode::uAddNewMode, "", "", "", "", UserName, "", 0);
     }
 
     static vector <clsUser> GetUsersList()
