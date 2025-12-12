@@ -1,5 +1,6 @@
 #pragma once
 
+#include "project3_bank_system_global.hpp"
 #include "project3_bank_system_screen.hpp"
 #include "project3_bank_system_screenClientList.hpp"
 #include "project3_bank_system_screenAddNewClient.hpp"
@@ -88,6 +89,12 @@ class clsMainScreen: protected clsScreen
 
         }
 
+        static void _Logout(void)
+        {
+            CurrentUser = clsUser::Find("", "");
+            //then it will go back to main function.
+        }
+
        static void _PerfromMainMenueOption(enMainMenueOptions MainMenueOption)
         {
             switch (MainMenueOption)
@@ -135,8 +142,8 @@ class clsMainScreen: protected clsScreen
 
             case enMainMenueOptions::eExit:
                 system("cls");
-                _ShowEndScreen();
-                //Login();
+                // _ShowEndScreen();
+                _Logout();
 
                 break;
             }
