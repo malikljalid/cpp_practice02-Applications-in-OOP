@@ -26,6 +26,10 @@ private:
 public:
     static void ShowDeleteClientScreen()
     {
+        if (!CheckAccessRights(enPermissions::pDeleteClient))
+        {
+            return;// this will exit the function and it will not continue
+        }
 
         _DrawScreenHeader("\tDelete Client Screen");
 
