@@ -2,14 +2,14 @@
 
 #include "project3_bank_system_person.hpp"
 
-enum enMode         { EmptyMode = 0, UpdateMode = 1, AddNewMode = 2 };
-enum enSaveResults  { svFaildEmptyObject = 0, svSucceeded = 1, svFaildAccountNumberExists = 2 };
+enum enClientMode         { cEmptyMode = 0, cUpdateMode = 1, cAddNewMode = 2 };
+enum enClientSaveResults  { csvFaildEmptyObject = 0, csvSucceeded = 1, csvFaildAccountNumberExists = 2 };
 
 class clsBankClient : public clsPerson
 {
 private:
 
-    enMode _Mode;
+    enClientMode _Mode;
     string _AccountNumber;
     string _PinCode;
     float  _AccountBalance;
@@ -20,7 +20,7 @@ private:
         vector<string> vClientData;
         vClientData = clsString::Split(Line, Seperator);
 
-        return clsBankClient(enMode::UpdateMode, vClientData[0], vClientData[1], vClientData[2],
+        return clsBankClient(enClientMode::cUpdateMode, vClientData[0], vClientData[1], vClientData[2],
             vClientData[3], vClientData[4], vClientData[5], stod(vClientData[6]));
 
     }
@@ -136,13 +136,13 @@ private:
 
     static clsBankClient _GetEmptyClientObject()
     {
-        return clsBankClient(enMode::EmptyMode, "", "", "", "", "", "", 0);
+        return clsBankClient(enClientMode::cEmptyMode, "", "", "", "", "", "", 0);
     }
 
 public:
 
 
-    clsBankClient(enMode Mode, string FirstName, string LastName,
+    clsBankClient(enClientMode Mode, string FirstName, string LastName,
         string Email, string Phone, string AccountNumber, string PinCode,
         float AccountBalance) :
         clsPerson(FirstName, LastName, Email, Phone)
@@ -157,7 +157,7 @@ public:
 
     bool IsEmpty()
     {
-        return (_Mode == enMode::EmptyMode);
+        return (_Mode == enClientMode::cEmptyMode);
     }
 
 
@@ -258,45 +258,45 @@ public:
         return _GetEmptyClientObject();
     }
 
-    enSaveResults Save()
+    enClientSaveResults Save()
     {
 
         switch (_Mode)
         {
-        case enMode::EmptyMode:
+        case enClientMode::cEmptyMode:
         {
             if (IsEmpty())
             {
-                return enSaveResults::svFaildEmptyObject;
+                return enClientSaveResults::csvFaildEmptyObject;
             }
 
         }
 
-        case enMode::UpdateMode:
+        case enClientMode::cUpdateMode:
         {
 
 
             _Update();
 
-            return enSaveResults::svSucceeded;
+            return enClientSaveResults::csvSucceeded;
 
             break;
         }
 
-        case enMode::AddNewMode:
+        case enClientMode::cAddNewMode:
         {
             //This will add new record to file or database
             if (clsBankClient::IsClientExist(_AccountNumber))
             {
-                return enSaveResults::svFaildAccountNumberExists;
+                return enClientSaveResults::csvFaildAccountNumberExists;
             }
             else
             {
                 _AddNew();
 
                 //We need to set the mode to update after add new
-                _Mode = enMode::UpdateMode;
-                return enSaveResults::svSucceeded;
+                _Mode = enClientMode::cUpdateMode;
+                return enClientSaveResults::csvSucceeded;
             }
 
             break;
@@ -339,7 +339,7 @@ public:
 
     static clsBankClient GetAddNewClientObject(string AccountNumber)
     {
-        return clsBankClient(enMode::AddNewMode, "", "", "", "", AccountNumber, "", 0);
+        return clsBankClient(enClientMode::cAddNewMode, "", "", "", "", AccountNumber, "", 0);
     }
 
     static vector <clsBankClient> GetClientsList()
