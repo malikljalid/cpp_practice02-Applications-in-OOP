@@ -8,8 +8,8 @@ class clsLoginScreen :protected clsScreen
 
 private :
 
-    static  bool _Login()
-    {
+static  bool _Login()
+{
         bool LoginFaild = false;
         short FaildLoginCount = 0;
 
@@ -22,7 +22,7 @@ private :
                 FaildLoginCount++;
 
                 cout << "\nInvlaid Username/Password!";
-                cout << "\nYou have " << (3-FaildLoginCount)
+                cout << "\nYou have " << (3 - FaildLoginCount)
                      << " Trial(s) to login.\n\n";   
             }
 
@@ -44,9 +44,16 @@ private :
 
         } while (LoginFaild);
 
+        CurrentUser.RegisterLogIn();
         clsMainScreen::ShowMainMenue();
         return true;
     }
+
+    void _Log()
+    {
+
+    }
+
 
 public:
 
