@@ -85,20 +85,20 @@ public:
 
             ReadClientInfo(Client1);
 
-            enSaveResults SaveResult;
+            enClientSaveResults SaveResult;
 
             SaveResult = Client1.Save();
 
             switch (SaveResult)
             {
-            case  enSaveResults::svSucceeded :
+            case  enClientSaveResults::csvSucceeded :
             {
                 cout << "\nAccount Updated Successfully :-)\n";
               
                 _PrintClient(Client1);
                 break;
             }
-            case enSaveResults::svFaildEmptyObject :
+            case enClientSaveResults::csvFaildEmptyObject :
             {
                 cout << "\nError account was not saved because it's Empty";
                 break;
