@@ -417,7 +417,7 @@ public:
        
     }
 
-    bool Transfer(float Amount, clsBankClient &DestinationClient)
+    bool Transfer(float Amount, clsBankClient &DestinationClient, string UserName)
     {
         if (Amount > _AccountBalance)
         {
@@ -426,6 +426,7 @@ public:
     
         Withdraw(Amount);
         DestinationClient.Deposit(Amount);
+        _RegisterTransferLog(Amount, DestinationClient, UserName);
         return true;
     }
 };
