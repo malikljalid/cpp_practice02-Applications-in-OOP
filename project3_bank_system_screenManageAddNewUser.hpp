@@ -111,6 +111,13 @@ private:
             Permissions += enPermissions::pManageUsers;
         }
 
+        cout << "\nShow Login Register? y/n? ";
+        cin >> Answer;
+        if (Answer == 'y' || Answer == 'Y')
+        {
+            Permissions += enPermissions::pShowLogInRegister;
+        }
+
         return Permissions;
 
     }
@@ -136,25 +143,25 @@ public:
 
         _ReadUserInfo(NewUser);
 
-        enSaveResults SaveResult;
+        enUserSaveResults SaveResult;
 
         SaveResult = NewUser.Save();
 
         switch (SaveResult)
         {
-        case  enSaveResults::svSucceeded:
+        case  enUserSaveResults::usvSucceeded:
         {
             cout << "\nUser Addeded Successfully :-)\n";
             _PrintUser(NewUser);
             break;
         }
-        case enSaveResults::svFaildEmptyObject:
+        case enUserSaveResults::usvFaildEmptyObject:
         {
             cout << "\nError User was not saved because it's Empty";
             break;
 
         }
-        case enSaveResults::svFaildUserExists:
+        case enUserSaveResults::usvFaildUserExists:
         {
             cout << "\nError User was not saved because UserName is used!\n";
             break;
