@@ -6,6 +6,7 @@
 #include "project3_bank_system_screenTransWithdraw.hpp"
 #include "project3_bank_system_screenTransTotalBalances.hpp"
 #include "project3_bank_system_screenTransfer.hpp"
+#include "project3_bank_system_screenTransferLog.hpp"
 
 enum enTransactionsMenueOptions {
                                     eDeposit = 1, eWithdraw = 2,
@@ -57,6 +58,13 @@ private:
          //cout << "\n Transfer Screen will be here.\n";
         clsTransferScreen::ShowTransferScreen();
 
+
+    }
+
+    static void _ShowTransferLogScreen()
+    {
+        //cout << "\n Transfer Screen will be here.\n";
+        clsTransferLogScreen::ShowTransferLogScreen();
 
     }
 
