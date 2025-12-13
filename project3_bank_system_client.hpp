@@ -139,6 +139,39 @@ private:
         return clsBankClient(enClientMode::cEmptyMode, "", "", "", "", "", "", 0);
     }
 
+    string _PrepareTransferLogRecord(float Amount,clsBankClient DestinationClient,
+                                     string UserName, string Seperator = "#//#")
+    {
+        string TransferLogRecord = "";
+        TransferLogRecord += clsDate::GetSystemDateTimeString() + Seperator;
+        TransferLogRecord += AccountNumber() + Seperator;
+        TransferLogRecord += DestinationClient.AccountNumber() + Seperator;
+        TransferLogRecord += to_string(Amount) + Seperator;
+        TransferLogRecord += to_string(GetAccountBalance()) + Seperator;
+        TransferLogRecord += to_string(DestinationClient.GetAccountBalance()) + Seperator;
+        TransferLogRecord += UserName;
+
+        return TransferLogRecord;
+    }
+
+    void _RegisterTransferLog(float Amount, clsBankClient DestinationClient, string UserName)
+    {
+
+        string stDataLine = _PrepareTransferLogRecord( Amount,  DestinationClient,  UserName);
+
+        fstream MyFile;
+        MyFile.open("TransferLog.txt", ios::out | ios::app);
+
+        if (MyFile.is_open())
+        {
+
+            MyFile << stDataLine << endl;
+
+            MyFile.close();
+        }
+
+    }
+
 public:
 
 
