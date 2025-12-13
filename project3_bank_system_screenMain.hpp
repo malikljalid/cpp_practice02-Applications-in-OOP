@@ -9,11 +9,12 @@
 #include "project3_bank_system_screenFindClient.hpp"
 #include "project3_bank_system_screenTransactions.hpp"
 #include "project3_bank_system_screenManageUsers.hpp"
+#include "project3_bank_system_screenLoginRegistre.hpp"
 
 enum enMainMenueOptions {
                             eListClients = 1, eAddNewClient = 2, eDeleteClient = 3,
                             eUpdateClient = 4, eFindClient = 5, eShowTransactionsMenue = 6,
-                            eManageUsers = 7, eExit = 8
+                            eManageUsers = 7, eLoginRegister=8, eExit = 9
                         };
 
 class clsMainScreen: protected clsScreen
@@ -89,6 +90,13 @@ class clsMainScreen: protected clsScreen
 
         }
 
+        static void _ShowLoginRegisterScreen()
+        {
+            // cout << "\nLogin Register Will be here...\n";
+            clsLoginRegisterScreen::ShowLoginRegisterScreen();
+
+        }
+
         static void _Logout(void)
         {
             CurrentUser = clsUser::Find("", "");
@@ -138,6 +146,12 @@ class clsMainScreen: protected clsScreen
             case enMainMenueOptions::eManageUsers:
                 system("cls");
                 _ShowManageUsersMenue();
+                break;
+
+            case enMainMenueOptions::eLoginRegister:
+                system("cls");
+                _ShowLoginRegisterScreen();
+                _GoBackToMainMenue();
                 break;
 
             case enMainMenueOptions::eExit:
