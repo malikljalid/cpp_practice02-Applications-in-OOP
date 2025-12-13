@@ -5,6 +5,7 @@
 #include "project3_bank_system_screenTransDeposit.hpp"
 #include "project3_bank_system_screenTransWithdraw.hpp"
 #include "project3_bank_system_screenTransTotalBalances.hpp"
+#include "project3_bank_system_screenTransfer.hpp"
 
 enum enTransactionsMenueOptions {
                                     eDeposit = 1, eWithdraw = 2,
@@ -48,6 +49,14 @@ private:
         cout << "\n\nPress any key to go back to Transactions Menue...";
         system("pause>0");
         ShowTransactionsMenue();
+
+    }
+
+    static void _ShowTransferScreen()
+    {
+         //cout << "\n Transfer Screen will be here.\n";
+        clsTransferScreen::ShowTransferScreen();
+
 
     }
 
