@@ -4,10 +4,10 @@
 
 enum enUserMode         { uEmptyMode = 0, uUpdateMode = 1, uAddNewMode = 2 };
 enum enUserSaveResults  { usvFaildEmptyObject = 0, usvSucceeded = 1, usvFaildUserExists = 2 };
-enum enPermissions  {
-                        eAll = -1, pListClients = 1, pAddNewClient = 2, pDeleteClient = 4,
-                        pUpdateClients = 8, pFindClient = 16, pTranactions = 32, pManageUsers = 64, pShowLogInRegister = 128
-                    };
+enum enPermissions      {
+                            eAll = -1, pListClients = 1, pAddNewClient = 2, pDeleteClient = 4,
+                            pUpdateClients = 8, pFindClient = 16, pTranactions = 32, pManageUsers = 64, pShowLogInRegister = 128
+                        };
 
 struct stLoginRegisterRecord
 {
@@ -72,7 +72,9 @@ private:
         UserRecord += User.GetEmail() + Seperator;
         UserRecord += User.GetPhone() + Seperator;
         UserRecord += User.GetUserName() + Seperator;
-        UserRecord += User.GetPassword() + Seperator;
+        // UserRecord += User.GetPassword() + Seperator;
+        //here we encypt store the encrypted Password not the real one.
+        UserRecord += clsUtil::EncryptText(User.GetPassword()) + Seperator;
         UserRecord += to_string(User.GetPermissions());
 
         return UserRecord;
