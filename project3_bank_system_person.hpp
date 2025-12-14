@@ -1,9 +1,9 @@
 #pragma once
 
 #include "project3_bank_system_inputValidation.hpp"
+#include "project3_bank_system_interfaceCommunication.hpp"
 
-
-class clsPerson
+class clsPerson : public InterfaceCommunication
 {
 
 private:
@@ -87,6 +87,22 @@ public:
         cout << "\nEmail    : " << _Email;
         cout << "\nPhone    : " << _Phone;
         cout << "\n___________________\n";
+
+    }
+
+    void SendEmail(string Title, string Body)
+    {
+
+    }
+
+    void SendFax(string Title, string Body)
+    {
+
+    }
+
+    void SendSMS(string Title, string Body)
+    {
+
 
     }
 
