@@ -2,6 +2,8 @@
 
 #include "project3_bank_system_screen.hpp"
 #include "project4_currency_exchange_screenCurrenciesList.hpp"
+#include "project4_currency_exchange_screenFindCurrency.hpp"
+#include "project4_currency_exchange_screenUpdateCurrency.hpp"
 
 class clsCurrencyExchangeMainScreen :protected clsScreen
 {
@@ -34,13 +36,14 @@ private:
 
     static void _ShowFindCurrencyScreen()
     {
-        cout << "\nFind Currency Screen Will Be Here.\n";
-
+        // cout << "\nFind Currency Screen Will Be Here.\n";
+        clsFindCurrencyScreen::ShowFindCurrencyScreen();
     }
 
     static void _ShowUpdateCurrencyRateScreen()
     {
-        cout << "\nUpdate Currency Rate Screen Will Be Here.\n";
+        // cout << "\nUpdate Currency Rate Screen Will Be Here.\n";
+        // clsUpdateCurrencyRateScreen::ShowUpdateCurrencyRateScreen();
     }
 
     static void _ShowCurrencyCalculatorScreen()
