@@ -4,6 +4,7 @@
 #include "project4_currency_exchange_screenCurrenciesList.hpp"
 #include "project4_currency_exchange_screenFindCurrency.hpp"
 #include "project4_currency_exchange_screenUpdateCurrency.hpp"
+#include "project4_currency_exchange_screenCurrencyCalculator.hpp"
 
 class clsCurrencyExchangeMainScreen :protected clsScreen
 {
@@ -49,7 +50,7 @@ private:
     static void _ShowCurrencyCalculatorScreen()
     {
         // cout << "\nCurrency Calculator Screen Will Be Here.\n";
-        
+        clsCurrencyCalculatorScreen::ShowCurrencyCalculatorScreen();
     }
 
     static void _PerformCurrenciesMainMenueOptions(enCurrenciesMainMenueOptions CurrenciesMainMenueOptions)
