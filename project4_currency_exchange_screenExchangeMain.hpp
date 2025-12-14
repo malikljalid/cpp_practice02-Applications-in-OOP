@@ -43,7 +43,7 @@ private:
     static void _ShowUpdateCurrencyRateScreen()
     {
         // cout << "\nUpdate Currency Rate Screen Will Be Here.\n";
-        // clsUpdateCurrencyRateScreen::ShowUpdateCurrencyRateScreen();
+        clsUpdateCurrencyRateScreen::ShowUpdateCurrencyRateScreen();
     }
 
     static void _ShowCurrencyCalculatorScreen()
